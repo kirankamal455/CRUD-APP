@@ -1,5 +1,5 @@
-import 'package:crud_app_flutter/SplashScreen/Splash_Screen.dart';
-import 'package:crud_app_flutter/database/sql_functions/database_functions.dart';
+import 'package:crud_app_flutter/database/database_functions.dart';
+import 'package:crud_app_flutter/screens/splashScreen/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

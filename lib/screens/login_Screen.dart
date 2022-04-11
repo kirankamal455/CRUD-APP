@@ -1,7 +1,6 @@
-import 'package:crud_app_flutter/database/list_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:crud_app_flutter/firebase/login_auth.dart';
 import 'package:flutter/material.dart';
-import 'Signup_Screen.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   //Form validation
   //generation of formkey
-  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
   String errorMessage = '';
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
           automaticallyImplyLeading: false,
         ),
         body: Form(
-          key: _key,
+          key: key,
           child: SafeArea(
             child: Padding(
                 padding: const EdgeInsets.all(10),
@@ -73,8 +72,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: const Text('Sign in',
                                 style: TextStyle(fontSize: 16)),
                             onPressed: () {
-                              signIn();
-
+                              final validation = ValidateEmailAndPassword(
+                                context: context,
+                                key: key,
+                                emailController: emailController.text.trim(),
+                                passwordController:
+                                    passwordController.text.trim(),
+                                state: true,
+                              );
+                              validation.userSignInAndSighnUp();
                               setState(() {});
                             },
                             style: ButtonStyle(
@@ -110,54 +116,4 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ));
   }
-
-  signIn() async {
-    if (_key.currentState!.validate()) {
-      try {
-        await FirebaseAuth.instance
-            .signInWithEmailAndPassword(
-                email: emailController.text, password: passwordController.text)
-            .then((value) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePage()));
-        });
-        errorMessage = '';
-      } on FirebaseAuthException catch (e) {
-        errorMessage = e.code;
-        //An error from the firbase will trigger the snack bar
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(errorMessage),
-          backgroundColor: Colors.red,
-        ));
-      }
-      setState(() {});
-    }
-  }
 }
-
-//To check if the password field is empty or not
-String? validateEmail(String? formEmail) {
-  if (formEmail == null || formEmail.isEmpty) {
-    return 'Email addrees is required';
-  }
-
-  return null;
-}
-
-//To check if the password field is empty or not
-String? validatePassword(String? formpass) {
-  if (formpass == null || formpass.isEmpty) {
-    return 'Password is required';
-  }
-  return null;
-}
-// Future<void> InternetCheck()
-// async {
-//   bool result = await InternetConnectionChecker().hasConnection;
-// if(result == true) {
-//   print('YAY! Free cute dog pics!');
-// } else {
-//   print('No internet :( Reason:');
-//   print(InternetConnectionChecker().lastTryResults);
-// }
-// }
