@@ -1,5 +1,4 @@
-import 'package:crud_app_flutter/database/list_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:crud_app_flutter/firebase/login_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -75,7 +74,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       side: const BorderSide(
                                           color: Colors.blue)))),
                           onPressed: () {
-                            signUp();
+                            final validation = ValidateEmailAndPassword(
+                              context: context,
+                              key: _key,
+                              emailController: emailController.text.trim(),
+                              passwordController:
+                                  passwordController.text.trim(),
+                              state: false,
+                            );
+                            validation.userSignInAndSighnUp();
+
+                            //signUp();
                             setState(() {});
                           },
                         )),
@@ -83,44 +92,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ],
               )),
         ));
-  }
-
-  signUp() async {
-    if (_key.currentState!.validate()) {
-      try {
-        await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: emailController.text, password: passwordController.text)
-            .then((value) {
-          Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => const HomePage()),
-              (Route<dynamic> route) => false);
-        });
-        errorMessage = '';
-      } on FirebaseAuthException catch (e) {
-        errorMessage = e.code;
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(errorMessage),
-          backgroundColor: Colors.red,
-        ));
-      }
-    }
-  }
-
-  //Email and password validatiion
-  String? validateEmail(String? formEmail) {
-    if (formEmail == null || formEmail.isEmpty) {
-      return 'Email addrees is required';
-    }
-
-    return null;
-  }
-
-//password validation
-  String? validatePassword(String? formpass) {
-    if (formpass == null || formpass.isEmpty) {
-      return 'Password is required';
-    }
-    return null;
   }
 }

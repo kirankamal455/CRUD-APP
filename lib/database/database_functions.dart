@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/data_model/data_model.dart';
+import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
