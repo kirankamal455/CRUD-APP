@@ -11,27 +11,28 @@ Future<void> initializeDataBase() async {
       onCreate: (Database db, int version) async {
     // Students Table creation
     await db.execute(
-        'CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT,age TEXT,rollno TEXT)');
+        'CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT,age TEXT,rollno TEXT, createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)');
   });
 }
 
 //insert the student data to  database
-Future<int> addStudent(StudentModel value) async {
+Future<void> addStudent(StudentModel value) async {
   studentListNotifier.value.add(value);
-  int k = await _db.rawInsert(
-      'INSERT INTO students(id,name, age,rollno) VALUES(?,?, ?,?)',
-      [value.id, value.name, value.age, value.rollno]);
+  final time = DateTime.now().toString();
+  print(time);
+  await _db.rawInsert(
+      'INSERT INTO students(id,name, age,rollno,createdAt) VALUES(?,?, ?,?,?)',
+      [value.id, value.name, value.age, value.rollno, time]);
 
   getAllStudentsDetails();
   studentListNotifier.notifyListeners();
-  return k;
 }
 
 //get the all students data from database
 Future<void> getAllStudentsDetails() async {
   studentListNotifier.value.clear();
   final _values =
-      await _db.rawQuery('SELECT * FROM students ORDER BY id DESC ');
+      await _db.rawQuery('SELECT * FROM students ORDER BY createdAt DESC ');
   print(_values);
   studentListNotifier.value.clear();
   //Get each map on by one
