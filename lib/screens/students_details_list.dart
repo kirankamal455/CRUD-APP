@@ -1,3 +1,4 @@
+import 'package:crud_app_flutter/firebase/Login_auth.dart';
 import 'package:crud_app_flutter/widgets/bottom_sheet.dart';
 import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:crud_app_flutter/screens/login_Screen.dart';
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              signOut(context);
+              signOutUser(context);
             },
           ),
         ],
@@ -118,12 +119,5 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: const Color.fromARGB(255, 242, 243, 248),
     );
-  }
-
-  signOut(BuildContext ctx) {
-    FirebaseAuth.instance.signOut().then((value) => Navigator.of(context)
-        .pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
-            (Route<dynamic> route) => false));
   }
 }

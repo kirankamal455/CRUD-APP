@@ -28,8 +28,8 @@ class BottomUpSheet {
 // This function will be working  when the floating button is pressed
 // It will also be working when you want to update an student
   void studentsDetailsForm() async {
-    // if id == null -> create new student
-    //  if  id != null -> update an existing student
+    // if checkid != true -> create new student
+    //  if  id == true -> update an existing student
     if (checkid != true) {
       _nameController.text = name!;
       _ageController.text = age!;
@@ -67,7 +67,7 @@ class BottomUpSheet {
                     decoration: const InputDecoration(hintText: 'Roll No'),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Center(
                     child: ElevatedButton(
@@ -115,7 +115,7 @@ class BottomUpSheet {
 
     if (_name.isEmpty || _age.isEmpty || _rollno.isEmpty) {
       k = 1;
-      return print('Please provide the details');
+      return;
     }
     final _studentdata =
         StudentModel(id: id, name: _name, age: _age, rollno: _rollno);

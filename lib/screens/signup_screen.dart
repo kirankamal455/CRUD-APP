@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: emailController,
                       validator: validateEmail,
                       decoration: InputDecoration(
-                          hintText: 'Enter the Email id',
+                          hintText: 'Email id',
                           contentPadding: const EdgeInsets.all(15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
