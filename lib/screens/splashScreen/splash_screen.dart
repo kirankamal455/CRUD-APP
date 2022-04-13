@@ -23,19 +23,25 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Container(
-          alignment: Alignment.center,
-          child: Image.asset(
-            'assets/images/flutter_ui_dev_logo.png',
-            height: 200,
-            width: 200,
-          ),
-        ),
-      ],
-    );
+    return Scaffold(
+        backgroundColor: Colors.yellow,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/flutter_ui_dev_logo.png',
+                height: 180,
+                width: 180,
+              ),
+            ),
+            // SizedBox(height: 30),
+            // Container(
+            //   child: const Text('CRUD APP'),
+            // )
+          ],
+        ));
   }
 
 //checking wether the user is loged or not

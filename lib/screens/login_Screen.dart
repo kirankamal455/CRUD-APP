@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         validator: validateEmail,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'User Name',
+                          labelText: 'Email Id',
                         ),
                       ),
                     ),
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 50,
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: ElevatedButton(
-                            child: const Text('Sign in',
+                            child: const Text('Sign In',
                                 style: TextStyle(fontSize: 16)),
                             onPressed: () {
                               final validation = ValidateEmailAndPassword(
@@ -87,10 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(18.0),
-                                        side: const BorderSide(
-                                            color: Colors.blue)))))),
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))))),
                     const SizedBox(height: 20),
                     Row(
                       children: <Widget>[

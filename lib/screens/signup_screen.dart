@@ -70,9 +70,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      side: const BorderSide(
-                                          color: Colors.blue)))),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ))),
                           onPressed: () {
                             final validation = ValidateEmailAndPassword(
                               context: context,

@@ -1,8 +1,6 @@
 import 'package:crud_app_flutter/firebase/Login_auth.dart';
 import 'package:crud_app_flutter/widgets/bottom_sheet.dart';
 import 'package:crud_app_flutter/model/data_model.dart';
-import 'package:crud_app_flutter/screens/login_Screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:crud_app_flutter/database/database_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -76,7 +74,8 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         children: [
                           IconButton(
-                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              icon:
+                                  const Icon(Icons.edit, color: Colors.yellow),
                               onPressed: () {
                                 final details = BottomUpSheet(
                                     id: data.id,

@@ -20,9 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Login App',
-      theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 53, 6, 221),
-      ),
+      theme: ThemeData(primarySwatch: Colors.yellow),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );
