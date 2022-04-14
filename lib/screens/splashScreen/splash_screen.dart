@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:crud_app_flutter/screens/Login_Screen.dart';
 import 'package:crud_app_flutter/screens/students_details_list.dart';
+import 'package:crud_app_flutter/widgets/progress_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 4), () {
+    Timer(const Duration(seconds: 2), () {
       isUserisLogedOrnot();
     });
   }
@@ -25,51 +25,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Container(
-            decoration: const BoxDecoration(color: Colors.greenAccent),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 50.0,
-                      child: Icon(
-                        Icons.cast_for_education_rounded,
-                        color: Colors.black,
-                        size: 50.0,
-                      ),
-                    ),
-                    Padding(padding: EdgeInsets.only(top: 15.0)),
-                    Text(
-                      "CRUD APP",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.0,
-                          color: Colors.black),
-                    ),
-                    SizedBox(height: 26),
-                    CircularProgressIndicator(
-                      backgroundColor: Colors.white,
-                      valueColor: AlwaysStoppedAnimation(Colors.greenAccent),
-                      strokeWidth: 3,
-                    ),
-                  ],
-                ),
+        backgroundColor: const Color.fromARGB(255, 251, 255, 0),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/flutter_ui_dev_logo.png',
+                height: 140,
+                width: 140,
               ),
-            ],
-          )
-        ],
-      ),
-    );
+            ),
+            const SizedBox(height: 37),
+            const ProgressBar(),
+          ],
+        ));
   }
 
 //checking wether the user is loged or not

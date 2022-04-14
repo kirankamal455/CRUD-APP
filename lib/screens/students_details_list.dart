@@ -1,7 +1,6 @@
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:crud_app_flutter/widgets/bottom_sheet.dart';
 import 'package:crud_app_flutter/model/data_model.dart';
-import 'package:crud_app_flutter/screens/login_Screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:crud_app_flutter/database/database_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +18,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text(
           'Students Details',
+          style: TextStyle(color: Colors.black),
         ),
         automaticallyImplyLeading: false,
         elevation: 5,
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              signOut(context);
+              signOutUser(context);
             },
           ),
         ],
@@ -75,7 +75,8 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         children: [
                           IconButton(
-                              icon: const Icon(Icons.edit, color: Colors.blue),
+                              icon:
+                                  const Icon(Icons.edit, color: Colors.yellow),
                               onPressed: () {
                                 final details = BottomUpSheet(
                                     id: data.id,
@@ -118,12 +119,5 @@ class _HomePageState extends State<HomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: const Color.fromARGB(255, 242, 243, 248),
     );
-  }
-
-  signOut(BuildContext ctx) {
-    FirebaseAuth.instance.signOut().then((value) => Navigator.of(context)
-        .pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
-            (Route<dynamic> route) => false));
   }
 }

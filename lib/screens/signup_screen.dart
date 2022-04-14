@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/login_auth.dart';
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -27,11 +27,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: 80),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: Container(
-                        child: const Text(
+                    child: const Text(
                       'Create Your Account',
                       style: TextStyle(fontSize: 15),
-                    )),
+                    ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(10),
@@ -39,7 +38,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: emailController,
                       validator: validateEmail,
                       decoration: InputDecoration(
-                          hintText: 'Enter the Email id',
+                          hintText: 'Email id',
                           contentPadding: const EdgeInsets.all(15),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
@@ -70,9 +69,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               shape: MaterialStateProperty.all<
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(18.0),
-                                      side: const BorderSide(
-                                          color: Colors.blue)))),
+                            borderRadius: BorderRadius.circular(18.0),
+                          ))),
                           onPressed: () {
                             final validation = ValidateEmailAndPassword(
                               context: context,

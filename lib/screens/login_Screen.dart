@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/login_auth.dart';
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
 
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         validator: validateEmail,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'User Name',
+                          labelText: 'Email Id',
                         ),
                       ),
                     ),
@@ -69,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 50,
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: ElevatedButton(
-                            child: const Text('Sign in',
+                            child: const Text('Sign In',
                                 style: TextStyle(fontSize: 16)),
                             onPressed: () {
                               final validation = ValidateEmailAndPassword(
@@ -81,20 +81,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                 state: true,
                               );
                               validation.userSignInAndSighnUp();
+
                               setState(() {});
                             },
                             style: ButtonStyle(
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(18.0),
-                                        side: const BorderSide(
-                                            color: Colors.blue)))))),
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))))),
                     const SizedBox(height: 20),
                     Row(
                       children: <Widget>[
-                        const Text('Dont have an account ?'),
+                        const Text(
+                          'Dont have an account ?',
+                          style: TextStyle(color: Colors.black),
+                        ),
                         TextButton(
                           child: const Text(
                             'Sign up',

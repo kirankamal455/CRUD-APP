@@ -3,7 +3,7 @@ import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:flutter/material.dart';
 
 int k = 0;
-bool chekid = false;
+bool checkid = false;
 final TextEditingController _nameController = TextEditingController();
 final TextEditingController _ageController = TextEditingController();
 final TextEditingController _rollnoController = TextEditingController();
@@ -28,8 +28,8 @@ class BottomUpSheet {
 // This function will be working  when the floating button is pressed
 // It will also be working when you want to update an student
   void studentsDetailsForm() async {
-    // if id == null -> create new student
-    //  if  id != null -> update an existing student
+    // if checkid != true -> create new student
+    //  if  id == true -> update an existing student
     if (checkid != true) {
       _nameController.text = name!;
       _ageController.text = age!;
@@ -60,14 +60,16 @@ class BottomUpSheet {
                   ),
                   TextFormField(
                     controller: _ageController,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(hintText: 'Age'),
                   ),
                   TextFormField(
                     controller: _rollnoController,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(hintText: 'Roll No'),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Center(
                     child: ElevatedButton(
@@ -115,7 +117,7 @@ class BottomUpSheet {
 
     if (_name.isEmpty || _age.isEmpty || _rollno.isEmpty) {
       k = 1;
-      return print('Please provide the details');
+      return;
     }
     final _studentdata =
         StudentModel(id: id, name: _name, age: _age, rollno: _rollno);
@@ -128,7 +130,7 @@ class BottomUpSheet {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
           content: Text('Successfully updated a Student'),
-          backgroundColor: Colors.blue),
+          backgroundColor: Colors.yellow),
     );
     getAllStudentsDetails();
   }
