@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/login_auth.dart';
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -27,11 +27,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: 80),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: Container(
-                        child: const Text(
+                    child: const Text(
                       'Create Your Account',
                       style: TextStyle(fontSize: 15),
-                    )),
+                    ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(10),

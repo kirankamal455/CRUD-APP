@@ -19,7 +19,6 @@ Future<void> initializeDataBase() async {
 Future<void> addStudent(StudentModel value) async {
   studentListNotifier.value.add(value);
   final time = DateTime.now().toString();
-  print(time);
   await _db.rawInsert(
       'INSERT INTO students(id,name, age,rollno,createdAt) VALUES(?,?, ?,?,?)',
       [value.id, value.name, value.age, value.rollno, time]);

@@ -3,7 +3,7 @@ import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:flutter/material.dart';
 
 int k = 0;
-bool chekid = false;
+bool checkid = false;
 final TextEditingController _nameController = TextEditingController();
 final TextEditingController _ageController = TextEditingController();
 final TextEditingController _rollnoController = TextEditingController();
@@ -60,10 +60,12 @@ class BottomUpSheet {
                   ),
                   TextFormField(
                     controller: _ageController,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(hintText: 'Age'),
                   ),
                   TextFormField(
                     controller: _rollnoController,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(hintText: 'Roll No'),
                   ),
                   const SizedBox(
@@ -128,7 +130,7 @@ class BottomUpSheet {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
           content: Text('Successfully updated a Student'),
-          backgroundColor: Colors.blue),
+          backgroundColor: Colors.yellow),
     );
     getAllStudentsDetails();
   }

@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/login_auth.dart';
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
 
@@ -81,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 state: true,
                               );
                               validation.userSignInAndSighnUp();
+
                               setState(() {});
                             },
                             style: ButtonStyle(
@@ -92,7 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 20),
                     Row(
                       children: <Widget>[
-                        const Text('Dont have an account ?'),
+                        const Text(
+                          'Dont have an account ?',
+                          style: TextStyle(color: Colors.black),
+                        ),
                         TextButton(
                           child: const Text(
                             'Sign up',

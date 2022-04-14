@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/Login_auth.dart';
+import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:crud_app_flutter/widgets/bottom_sheet.dart';
 import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:crud_app_flutter/database/database_functions.dart';
@@ -18,6 +18,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text(
           'Students Details',
+          style: TextStyle(color: Colors.black),
         ),
         automaticallyImplyLeading: false,
         elevation: 5,
