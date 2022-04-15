@@ -36,6 +36,9 @@ class BottomUpSheet {
       _rollnoController.text = rollno!;
     }
     showModalBottomSheet(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(14.0)),
+        ),
         context: context,
         elevation: 5,
         isScrollControlled: true,
@@ -82,7 +85,7 @@ class BottomUpSheet {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text('Successfully Added a Student'),
-                                  backgroundColor: Colors.blue),
+                                  backgroundColor: Colors.yellow),
                             );
                           }
                         }

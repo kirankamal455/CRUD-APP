@@ -1,5 +1,5 @@
-import 'package:crud_app_flutter/screens/Login_Screen.dart';
-import 'package:crud_app_flutter/screens/students_details_list.dart';
+import 'package:crud_app_flutter/screens/home_screen/students_details_list.dart';
+import 'package:crud_app_flutter/screens/login_screen/login_scree.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

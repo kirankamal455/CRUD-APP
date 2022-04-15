@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:crud_app_flutter/screens/Login_Screen.dart';
-import 'package:crud_app_flutter/screens/students_details_list.dart';
+import 'package:crud_app_flutter/screens/home_screen/students_details_list.dart';
+import 'package:crud_app_flutter/screens/login_screen/login_scree.dart';
 import 'package:crud_app_flutter/widgets/progress_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 251, 255, 0),
+        backgroundColor: const Color(0xFFFFD600),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -33,8 +33,8 @@ class _SplashScreenState extends State<SplashScreen> {
               alignment: Alignment.center,
               child: Image.asset(
                 'assets/images/flutter_ui_dev_logo.png',
-                height: 140,
-                width: 140,
+                height: 120,
+                width: 120,
               ),
             ),
             const SizedBox(height: 37),

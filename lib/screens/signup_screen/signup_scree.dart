@@ -25,23 +25,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ListView(
                 children: <Widget>[
                   const SizedBox(height: 80),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    child: const Text(
-                      'Create Your Account',
-                      style: TextStyle(fontSize: 15),
+                  const Center(
+                    child: Text(
+                      'Register',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
+                  const SizedBox(height: 30),
                   Container(
                     padding: const EdgeInsets.all(10),
                     child: TextFormField(
                       controller: emailController,
                       validator: validateEmail,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Email id',
-                          contentPadding: const EdgeInsets.all(15),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
+                          contentPadding: EdgeInsets.all(15),
+                          border: OutlineInputBorder()),
                     ),
                   ),
                   Container(
@@ -50,11 +50,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       obscureText: true,
                       controller: passwordController,
                       validator: validatePassword,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Password',
-                          contentPadding: const EdgeInsets.all(15),
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10))),
+                          contentPadding: EdgeInsets.all(15),
+                          border: OutlineInputBorder()),
                     ),
                   ),
                   const SizedBox(height: 40),
