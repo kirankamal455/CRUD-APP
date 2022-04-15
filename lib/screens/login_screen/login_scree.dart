@@ -1,6 +1,6 @@
 import 'package:crud_app_flutter/firebase/user_authentication.dart';
+import 'package:crud_app_flutter/screens/signup_screen/signup_scree.dart';
 import 'package:flutter/material.dart';
-import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -36,8 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Text(
                           'Login to your Account ',
                           style: TextStyle(
-                            fontSize: 20,
-                          ),
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         )),
                     const SizedBox(height: 10),
                     Container(
@@ -47,6 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         validator: validateEmail,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(15),
                           labelText: 'Email Id',
                         ),
                       ),
@@ -60,13 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         validator: validatePassword,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.all(15),
                           labelText: 'Password',
                         ),
                       ),
                     ),
                     const SizedBox(height: 40),
                     Container(
-                        height: 50,
+                        height: 46,
                         padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
                         child: ElevatedButton(
                             child: const Text('Sign In',
@@ -88,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
+                              borderRadius: BorderRadius.circular(80.0),
                             ))))),
                     const SizedBox(height: 20),
                     Row(

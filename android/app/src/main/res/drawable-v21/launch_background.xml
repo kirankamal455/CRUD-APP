@@ -4,8 +4,8 @@
     <item android:drawable="@color/back_groundcolor" />
 
     <item
-    android:width="140dp"
-    android:height="140dp"
+    android:width="120dp"
+    android:height="120dp"
     android:drawable="@drawable/flutter_ui_dev_logo"
     android:gravity="center"
  /> 

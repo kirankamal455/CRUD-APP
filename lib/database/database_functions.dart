@@ -32,7 +32,7 @@ Future<void> getAllStudentsDetails() async {
   studentListNotifier.value.clear();
   final _values =
       await _db.rawQuery('SELECT * FROM students ORDER BY createdAt DESC ');
-  print(_values);
+
   studentListNotifier.value.clear();
   //Get each map on by one
   for (var map in _values) {
