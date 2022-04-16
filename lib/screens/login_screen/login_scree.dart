@@ -1,5 +1,6 @@
-import 'package:crud_app_flutter/firebase/user_authentication.dart';
 import 'package:crud_app_flutter/screens/signup_screen/signup_scree.dart';
+import 'package:crud_app_flutter/widgets/elevated_button.dart';
+import 'package:crud_app_flutter/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -11,112 +12,66 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  //Form validation
-  //generation of formkey
+  //Form validation and generation of formkey
   final GlobalKey<FormState> key = GlobalKey<FormState>();
   String errorMessage = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Login'),
-          automaticallyImplyLeading: false,
-        ),
-        body: Form(
-          key: key,
-          child: SafeArea(
-            child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: ListView(
+      appBar: AppBar(
+        title: const Text('Login'),
+        automaticallyImplyLeading: false,
+      ),
+      body: Form(
+        key: key,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: ListView(
+              children: <Widget>[
+                const SizedBox(height: 80),
+                const Heading(text: 'Login to your Account'),
+                const SizedBox(height: 10),
+                EmailTextField(emailController: emailController),
+                const SizedBox(height: 10),
+                PasswordTextField(passwordController: passwordController),
+                const SizedBox(height: 40),
+                Button(
+                  emailController: emailController,
+                  key1: key,
+                  passwordController: passwordController,
+                  text: 'Sign In',
+                  state: true,
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const SizedBox(height: 80),
-                    Container(
-                        alignment: Alignment.center,
-                        padding: const EdgeInsets.all(10),
-                        child: const Text(
-                          'Login to your Account ',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        )),
-                    const SizedBox(height: 10),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      child: TextFormField(
-                        controller: emailController,
-                        validator: validateEmail,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(15),
-                          labelText: 'Email Id',
-                        ),
-                      ),
+                    const Text(
+                      "Don't have an account ?",
+                      style: TextStyle(color: Colors.black),
                     ),
-                    const SizedBox(height: 10),
-                    Container(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: TextFormField(
-                        obscureText: true,
-                        controller: passwordController,
-                        validator: validatePassword,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.all(15),
-                          labelText: 'Password',
-                        ),
+                    TextButton(
+                      child: const Text(
+                        'Sign up',
+                        style: TextStyle(fontSize: 20),
                       ),
-                    ),
-                    const SizedBox(height: 40),
-                    Container(
-                        height: 46,
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-                        child: ElevatedButton(
-                            child: const Text('Sign In',
-                                style: TextStyle(fontSize: 16)),
-                            onPressed: () {
-                              final validation = ValidateEmailAndPassword(
-                                context: context,
-                                key: key,
-                                emailController: emailController.text.trim(),
-                                passwordController:
-                                    passwordController.text.trim(),
-                                state: true,
-                              );
-                              validation.userSignInAndSighnUp();
-
-                              setState(() {});
-                            },
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0),
-                            ))))),
-                    const SizedBox(height: 20),
-                    Row(
-                      children: <Widget>[
-                        const Text(
-                          'Dont have an account ?',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        TextButton(
-                          child: const Text(
-                            'Sign up',
-                            style: TextStyle(fontSize: 20),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpScreen(),
                           ),
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SignUpScreen()));
-                          },
-                        )
-                      ],
-                      mainAxisAlignment: MainAxisAlignment.center,
-                    ),
+                        );
+                      },
+                    )
                   ],
-                )),
+                ),
+              ],
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

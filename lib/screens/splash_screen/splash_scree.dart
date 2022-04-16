@@ -25,36 +25,41 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFFFFD600),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset(
-                'assets/images/flutter_ui_dev_logo.png',
-                height: 120,
-                width: 120,
-              ),
+      backgroundColor: const Color(0xFFFFD600),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/flutter_ui_dev_logo.png',
+              height: 120,
+              width: 120,
             ),
-            const SizedBox(height: 37),
-            const ProgressBar(),
-          ],
-        ));
+          ),
+          const SizedBox(height: 37),
+          const ProgressBar(),
+        ],
+      ),
+    );
   }
 
-//checking wether the user is loged or not
+//Checks whether the user is logged in or not
   void isUserisLogedOrnot() async {
     if (FirebaseAuth.instance.currentUser?.uid == null) {
       Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (BuildContext context) => const LoginScreen()));
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => const LoginScreen(),
+        ),
+      );
     } else {
       Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (BuildContext context) => const HomePage()));
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => const HomePage(),
+        ),
+      );
     }
   }
 }

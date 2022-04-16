@@ -25,42 +25,56 @@ class ValidateEmailAndPassword {
           await FirebaseAuth.instance
               .signInWithEmailAndPassword(
                   email: emailController, password: passwordController)
-              .then((value) {
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => const HomePage()));
-          });
+              .then(
+            (value) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomePage(),
+                ),
+              );
+            },
+          );
           //validation of signup
         } else {
           await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
                   email: emailController, password: passwordController)
-              .then((value) {
-            Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => const HomePage()),
-                (Route<dynamic> route) => false);
-          });
+              .then(
+            (value) {
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                  (Route<dynamic> route) => false);
+            },
+          );
         }
         errorMessage = '';
       } on FirebaseAuthException catch (e) {
         errorMessage = e.code;
         //An error from the firbase will trigger the snack bar
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(errorMessage),
-          backgroundColor: Colors.red,
-        ));
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(errorMessage),
+            backgroundColor: Colors.red,
+          ),
+        );
       }
     }
   }
 }
 
+//Sign-out functionality
 signOutUser(BuildContext ctx) {
-  FirebaseAuth.instance.signOut().then((value) => Navigator.of(ctx)
-      .pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-          (Route<dynamic> route) => false));
+  FirebaseAuth.instance.signOut().then(
+        (value) => Navigator.of(ctx).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const LoginScreen()),
+            (Route<dynamic> route) => false),
+      );
 }
 
-///To check if the password field is empty or not
+///To checking   the email field is empty or not
 String? validateEmail(String? formEmail) {
   if (formEmail == null || formEmail.isEmpty) {
     return 'Email addrees is required';
@@ -69,7 +83,7 @@ String? validateEmail(String? formEmail) {
   return null;
 }
 
-//To check if the password field is empty or not
+//To checking the password field is empty or not
 String? validatePassword(String? formpass) {
   if (formpass == null || formpass.isEmpty) {
     return 'Password is required';

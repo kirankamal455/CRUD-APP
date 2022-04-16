@@ -41,11 +41,12 @@ class _HomePageState extends State<HomePage> {
                 final data = students[index];
                 return Card(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      side: BorderSide(
-                        color: Colors.grey.withOpacity(0.2),
-                        width: 1,
-                      )),
+                    borderRadius: BorderRadius.circular(20),
+                    side: BorderSide(
+                      color: Colors.grey.withOpacity(0.2),
+                      width: 1,
+                    ),
+                  ),
                   color: const Color.fromARGB(252, 252, 252, 255),
                   margin: const EdgeInsets.all(8),
                   child: ListTile(
@@ -56,9 +57,10 @@ class _HomePageState extends State<HomePage> {
                     title: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(data.name,
-                            style:
-                                const TextStyle(fontWeight: FontWeight.bold)),
+                        Text(
+                          data.name,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                     subtitle: Column(
@@ -75,18 +77,18 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         children: [
                           IconButton(
-                              icon:
-                                  const Icon(Icons.edit, color: Colors.yellow),
-                              onPressed: () {
-                                final details = BottomUpSheet(
-                                    id: data.id,
-                                    name: data.name,
-                                    age: data.age,
-                                    rollno: data.rollno,
-                                    context: context);
+                            icon: const Icon(Icons.edit, color: Colors.yellow),
+                            onPressed: () {
+                              final details = BottomUpSheet(
+                                  id: data.id,
+                                  name: data.name,
+                                  age: data.age,
+                                  rollno: data.rollno,
+                                  context: context);
 
-                                details.studentsDetailsForm();
-                              }),
+                              details.studentsDetailsForm();
+                            },
+                          ),
                           IconButton(
                             icon: const Icon(
                               Icons.delete,
@@ -96,10 +98,13 @@ class _HomePageState extends State<HomePage> {
                               int? a = data.id;
                               deleteStudent(a!);
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text(
-                                          'Successfully deleted a Student'),
-                                      backgroundColor: Colors.red));
+                                const SnackBar(
+                                  content:
+                                      Text('Successfully deleted a Student'),
+                                  backgroundColor:
+                                      Color.fromARGB(255, 221, 31, 17),
+                                ),
+                              );
                             },
                           ),
                         ],
@@ -111,11 +116,13 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            final detailsForm = BottomUpSheet(context: context, checkid: true);
-            detailsForm.studentsDetailsForm();
-          }),
+        child: const Icon(Icons.add),
+        onPressed: () {
+          final detailsForm =
+              BottomUpSheet(context: context, dataIsAvailable: true);
+          detailsForm.studentsDetailsForm();
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       backgroundColor: const Color.fromARGB(255, 242, 243, 248),
     );
