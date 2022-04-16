@@ -42,7 +42,7 @@ Future<void> getAllStudentsDetails() async {
   }
 }
 
-//update student
+//Editing  an existing student
 Future<void> updateStudent(
     int id, String name, String age, String rollno) async {
   await _db.rawUpdate(
@@ -51,7 +51,7 @@ Future<void> updateStudent(
   getAllStudentsDetails();
 }
 
-//delete the data from database
+//delete the student data from database
 Future<void> deleteStudent(int id) async {
   final db = _db;
   await db.delete(

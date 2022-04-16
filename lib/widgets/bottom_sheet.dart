@@ -3,7 +3,7 @@ import 'package:crud_app_flutter/model/data_model.dart';
 import 'package:flutter/material.dart';
 
 int k = 0;
-bool checkid = false;
+bool dataIsAvailable = false;
 final TextEditingController _nameController = TextEditingController();
 final TextEditingController _ageController = TextEditingController();
 final TextEditingController _rollnoController = TextEditingController();
@@ -14,12 +14,12 @@ class BottomUpSheet {
   final String? age;
   final String? rollno;
   final BuildContext context;
-  final bool? checkid;
+  final bool? dataIsAvailable;
 
   BottomUpSheet({
     this.name,
     this.id,
-    this.checkid,
+    this.dataIsAvailable,
     this.age,
     this.rollno,
     required this.context,
@@ -28,9 +28,9 @@ class BottomUpSheet {
 // This function will be working  when the floating button is pressed
 // It will also be working when you want to update an student
   void studentsDetailsForm() async {
-    // if checkid != true -> create new student
-    //  if  id == true -> update an existing student
-    if (checkid != true) {
+    // if dataIsAvailable != true -> create new student
+    //  if  dataIsAvailable == true -> update an existing student
+    if (dataIsAvailable != true) {
       _nameController.text = name!;
       _ageController.text = age!;
       _rollnoController.text = rollno!;
@@ -78,7 +78,6 @@ class BottomUpSheet {
                     child: ElevatedButton(
                       onPressed: () async {
                         // Save Student
-
                         if (id == null) {
                           await addStudentButtonClicked();
                           if (k == 0) {
@@ -89,11 +88,9 @@ class BottomUpSheet {
                             );
                           }
                         }
-
                         if (id != null) {
-                          _updateStudentDetails(id!); //null check rewrited
+                          _updateStudentDetails(id!);
                         }
-
                         // Clear the text fields
                         _nameController.text = '';
                         _ageController.text = '';
