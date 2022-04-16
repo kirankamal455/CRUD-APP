@@ -3,8 +3,8 @@
 A sample CRUD APP
 
 
-## Download App ![GitHub All Releases](https://img.shields.io/github/downloads/Thealphamerc/flutter_login_signup/total?color=green)
-<a href="https://github.com/TheAlphamerc/flutter_login_signup/releases/download/v1.0.0/app-release.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+## Download App 
+<a href="https://github.com/kirankamal455/CRUD-APP/releases/download/v0.1.0/CrudApp.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
 
 
