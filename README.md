@@ -35,9 +35,9 @@ Home page              |  Add  student  |  Update student Details
 
 
 
-# Dependencies
-dependencies:
- 
+## Dependencies
+These dependencies were used in pubspec.yamel file
+
  - firebase_auth: ^3.3.12
  - firebase_core: ^1.14.0
  - flutter_spinkit: ^5.1.0  
