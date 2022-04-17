@@ -6,10 +6,10 @@ A sample CRUD APP
 ## Download App 
 <a href="https://github.com/kirankamal455/CRUD-APP/releases/download/v0.1.0/CrudApp.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
-## Features available in app
+## ✨ Features
 
--   Login page
--   Sign Up page
+-   Login page with Firebase authentication
+-   Sign Up page with Firebase authentication
 -   User can add student name, age, and roll no. 
 
 -  View all the student details, sorted by most recent entry
@@ -22,7 +22,7 @@ A sample CRUD APP
 
 
 
-## Screenshots
+## 📸 ScreenShots
 
 Splash Screen              |  Login page  | SignUp page
 :-------------------------:|:-------------------------:|:-------------------------:
