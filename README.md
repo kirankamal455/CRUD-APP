@@ -4,7 +4,7 @@ A sample CRUD APP
 
 
 ## Download App 
-<a href="https://github.com/kirankamal455/CRUD-APP/releases/download/v0.1.0/CrudApp.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<a href="https://github.com/kirankamal455/CRUD-APP/releases/download/v1.0.0-alpha/CrudApp.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 
 ## ✨ Features
 
