@@ -1,10 +1,24 @@
-# CRUD APP
+# CRUD APP with  Flutter and SQLite
 
 A sample CRUD APP
 
 
 ## Download App 
 <a href="https://github.com/kirankamal455/CRUD-APP/releases/download/v0.1.0/CrudApp.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+
+## Features available in app
+
+-   Login page
+-   Sign Up page
+-   User can add student name, age, and roll no. 
+
+-  View all the student details, sorted by most recent entry
+
+-  Edit an existing student
+
+-  Delete student
+
+-  Sign-out functionality
 
 
 
@@ -17,4 +31,8 @@ Splash Screen              |  Login page  | SignUp page
 
 Home page              |  Add  student  |  Update student Details
 :-------------------------:|:-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/87146953/163665667-58a1f2fa-f4aa-4b7f-a22b-a8c1bec3d2ff.png)|![](https://user-images.githubusercontent.com/87146953/163665673-0a80fb04-083c-47b4-b56a-3d4682e03e77.png)|![](https://user-images.githubusercontent.com/87146953/163665674-6a22f01d-f149-4e4f-bd96-efaba3f25793.png)
+![](https://user-images.githubusercontent.com/87146953/163665667-58a1f2fa-f4aa-4b7f-a22b-a8c1bec3d2ff.png)|![](https://user-images.githubusercontent.com/87146953/163665673-0a80fb04-083c-47b4-b56a-3d4682e03e77.png)|![](https://user-images.githubusercontent.com/87146953/163665674-6a22f01d-f149-4e4f-bd96-efaba3f25793.png)![]
+
+
+
+# Packages
