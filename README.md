@@ -31,9 +31,14 @@ Splash Screen              |  Login page  | SignUp page
 
 Home page              |  Add  student  |  Update student Details
 :-------------------------:|:-------------------------:|:-------------------------:
-![](https://user-images.githubusercontent.com/87146953/163665667-58a1f2fa-f4aa-4b7f-a22b-a8c1bec3d2ff.png)|![](https://user-images.githubusercontent.com/87146953/163665673-0a80fb04-083c-47b4-b56a-3d4682e03e77.png)|![](https://user-images.githubusercontent.com/87146953/163665674-6a22f01d-f149-4e4f-bd96-efaba3f25793.png)![]
+![](https://user-images.githubusercontent.com/87146953/163665667-58a1f2fa-f4aa-4b7f-a22b-a8c1bec3d2ff.png)|![](https://user-images.githubusercontent.com/87146953/163665673-0a80fb04-083c-47b4-b56a-3d4682e03e77.png)|![](https://user-images.githubusercontent.com/87146953/163665674-6a22f01d-f149-4e4f-bd96-efaba3f25793.png)
 
 
 
 # Dependencies
-
+dependencies:
+ 
+ - firebase_auth: ^3.3.12
+ - firebase_core: ^1.14.0
+ - flutter_spinkit: ^5.1.0  
+-  sqflite: ^2.0.2
