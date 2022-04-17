@@ -1,6 +1,6 @@
 # CRUD APP with  Flutter and SQLite
 
-A sample CRUD APP
+This is a simple CRUD operations app using SQLite
 
 
 ## Download App 
