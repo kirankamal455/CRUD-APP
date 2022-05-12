@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class ProgressBar extends StatefulWidget {
+class ProgressBar extends StatelessWidget {
   const ProgressBar({Key? key}) : super(key: key);
 
-  @override
-  State<ProgressBar> createState() => _ProgressBarState();
-}
-
-class _ProgressBarState extends State<ProgressBar> {
   @override
   Widget build(BuildContext context) {
     return SpinKitThreeBounce(

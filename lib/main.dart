@@ -1,7 +1,12 @@
-import 'package:crud_app_flutter/database/database_functions.dart';
-import 'package:crud_app_flutter/screens/splash_screen/splash_scree.dart';
+import 'package:crud_app_flutter/app/core/theme/app_theme.dart';
+import 'package:crud_app_flutter/app/modules/splash_screen/splash_scree.dart';
+import 'package:crud_app_flutter/app/routes/app_pages.dart';
+import 'package:crud_app_flutter/app/routes/app_routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+
+import 'app/data/provider/database/database_functions.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,13 +23,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Login App',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
+      theme: appThemeData,
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: SplashScreen(),
+      initialRoute: Routes.splash,
+      getPages: AppPages.pages,
     );
   }
 }

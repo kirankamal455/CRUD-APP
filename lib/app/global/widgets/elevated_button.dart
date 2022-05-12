@@ -1,4 +1,4 @@
-import 'package:crud_app_flutter/firebase/user_authentication.dart';
+import 'package:crud_app_flutter/app/data/provider/firebase/user_authentication.dart';
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
@@ -25,7 +25,6 @@ class Button extends StatelessWidget {
         child: Text(text, style: const TextStyle(fontSize: 16)),
         onPressed: () {
           final validation = ValidateEmailAndPassword(
-            context: context,
             key: key1,
             emailController: emailController.text.trim(),
             passwordController: passwordController.text.trim(),

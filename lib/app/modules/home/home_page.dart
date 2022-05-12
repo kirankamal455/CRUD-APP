@@ -1,17 +1,15 @@
-import 'package:crud_app_flutter/firebase/user_authentication.dart';
-import 'package:crud_app_flutter/widgets/bottom_sheet.dart';
-import 'package:crud_app_flutter/model/data_model.dart';
-import 'package:crud_app_flutter/database/database_functions.dart';
-import 'package:flutter/material.dart';
+import 'package:crud_app_flutter/app/core/values/colors.dart';
+import 'package:crud_app_flutter/app/data/model/data_model.dart';
+import 'package:crud_app_flutter/app/data/provider/database/database_functions.dart';
+import 'package:crud_app_flutter/app/data/provider/firebase/user_authentication.dart';
+import 'package:crud_app_flutter/app/global/widgets/bottom_sheet.dart';
 
-class HomePage extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,13 +95,9 @@ class _HomePageState extends State<HomePage> {
                             onPressed: () {
                               int? a = data.id;
                               deleteStudent(a!);
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content:
-                                      Text('Successfully deleted a Student'),
-                                  backgroundColor:
-                                      Color.fromARGB(255, 221, 31, 17),
-                                ),
+                              Get.rawSnackbar(
+                                message: 'Successfully deleted a Student',
+                                backgroundColor: red,
                               );
                             },
                           ),
@@ -124,7 +118,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      backgroundColor: const Color.fromARGB(255, 242, 243, 248),
+      backgroundColor: lightyellow,
     );
   }
 }
