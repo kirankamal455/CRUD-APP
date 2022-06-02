@@ -10,6 +10,7 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  int a=0;
   String errorMessage = '';
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
